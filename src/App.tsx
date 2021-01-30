@@ -1,17 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import env from "react-dotenv";
 
-const api_key = "ebe44c3dc4fb91f6b0c80c857f05ab66"
+
+const apiKey = env.API_KEY;
+
 
 function App() {
-  const [info, setInfo] = useState("");
-  const [input, setInput] = useState(" "); 
+  var cityInput = "";
+  const [info, setInfo] = useState({
+    cityName: "Piracicaba",
+    temp: "0",
+    description: "",
+    windSpeed: 0
+  });
+  const [input, setInput] = useState("Piracicaba"); 
+
   useEffect(() => {
     async function Weather(city:string){
-      let weatherData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`);
+      let weatherData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
       let info = await weatherData.json();
       console.log(info);
-      setInfo(info.name)
+      setInfo({
+          cityName: info.name,
+          temp: (info.main.temp - 273.15).toFixed(2) + "°C",
+          description: info.weather[0].description,
+          windSpeed: info.wind.speed
+        })
     }
     Weather(input)
   },[input])
@@ -22,13 +37,15 @@ function App() {
     <div className="App">
       <form onSubmit={(e) => {
           e.preventDefault();
-          console.log(e);
+          setInput(cityInput);
         }}>
-        <input type="text" name="city"></input>
+        <input onChange={(e) => {cityInput = e.target.value} } type="text" id="city"></input>
         <button type="submit">search</button>
       </form>
-     <p>{info}</p>
-     <p>chama q é nois caraio</p>
+     <p>{info.cityName}</p>
+     <p>{info.temp}</p>
+     <p>{info.description}</p>
+     <p>Wind: {info.windSpeed}</p>
     </div>
   );
 }
