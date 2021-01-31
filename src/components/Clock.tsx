@@ -1,13 +1,16 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { Component } from "react";
 import "./style.css";
+import {InfoContext, InfoContextType} from "../App";
 
-
-class Clock extends React.Component<{}, {date: Date}> {
+class Clock extends React.Component<{}, {date: Date, info:InfoContextType}> {
   timerID:any;
   constructor(props:any){
     super(props);
-    this.state = {date: new Date()}
+    this.state = {
+      date: new Date(InfoContext.dt*1000 + (InfoContext.timezone*1000)),
+      info: InfoContext
+     };
   }
 
   componentDidMount(){
@@ -17,21 +20,24 @@ class Clock extends React.Component<{}, {date: Date}> {
     );
   }
 
+
   componentWillUnmount(){
     clearInterval(this.timerID);
   }
 
   tick(){
+    InfoContext.dt++;
     this.setState({
-      date: new Date()
+      date: new Date(InfoContext.dt*1000 + (InfoContext.timezone*1000))
     });
+
   }
 
   render(){
     return(
-      <div className="clockDiv">
+      <div className="Clock">
         <h1> Hello, World! </h1>
-        <h2> It is {this.state.date.toLocaleTimeString()}.</h2>
+        <h2> It is {this.state.date.toUTCString() + " in " + InfoContext.cityName}.</h2>
       </div>
     )
   }

@@ -1,21 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import env from "react-dotenv";
-
+import Clock from './components/Clock'
 
 const apiKey = env.API_KEY;
 
+export type InfoContextType ={
+  cityName: string;
+  temp: string;
+  description: string;
+  windSpeed: number;
+  dt: number;
+  timezone: number
+}
+
+export var InfoContext:InfoContextType = {
+  cityName: "Piracicaba",
+  temp: "0",
+  description: "",
+  windSpeed: 0,
+  dt: 1612117229, 
+  timezone: -10800
+}
 
 function App() {
+  var clockComponent = <Clock />;
   var cityInput = "";
-  const [info, setInfo] = useState({
-    cityName: "Piracicaba",
-    temp: "0",
-    description: "",
-    windSpeed: 0
-  });
-  const [input, setInput] = useState("Piracicaba"); 
-
+  const [info, setInfo] = useState(InfoContext);
+  const [input, setInput] = useState("Piracicaba");
   useEffect(() => {
     async function Weather(city:string){
       let weatherData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
@@ -25,19 +37,26 @@ function App() {
           cityName: info.name,
           temp: (info.main.temp - 273.15).toFixed(2) + "°C",
           description: info.weather[0].description,
-          windSpeed: info.wind.speed
-        })
-    }
-    Weather(input)
+          windSpeed: info.wind.speed,
+          dt: info.dt,
+          timezone: info.timezone
+        });
+        
+      }
+      Weather(input)
+    
+    
   },[input])
   
  
 
   return (
     <div className="App">
+      {clockComponent}
       <form onSubmit={(e) => {
-          e.preventDefault();
-          setInput(cityInput);
+        e.preventDefault(); 
+        InfoContext = info;
+        setInput(cityInput);
         }}>
         <input onChange={(e) => {cityInput = e.target.value} } type="text" id="city"></input>
         <button type="submit">search</button>
@@ -46,6 +65,7 @@ function App() {
      <p>{info.temp}</p>
      <p>{info.description}</p>
      <p>Wind: {info.windSpeed}</p>
+     
     </div>
   );
 }
