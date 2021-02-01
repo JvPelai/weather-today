@@ -1,51 +1,33 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import "./style.css";
-import {InfoContext, InfoContextType} from "../App";
+import {InfoContext} from "../App";
 
-class Clock extends React.Component<{}, {date: Date, info:InfoContextType}> {
-  timerID:any;
-  constructor(props:any){
-    super(props);
-    this.state = {
-      date: new Date(InfoContext.dt*1000 + (InfoContext.timezone*1000)),
-      info: InfoContext
-     };
-  }
+export default function Clock(){
+  const [info,setInfo] = useState(InfoContext);
+  const [date,setDate] = useState(new Date(info.dt*1000 + (info.timezone*1000)));
+  useEffect(() => {  
+    setInterval(() => {
+      setInfo({
+        cityName: InfoContext.cityName,
+        temp: InfoContext.temp,
+        description: InfoContext.description,
+        windSpeed: InfoContext.windSpeed,
+        dt: InfoContext.dt,
+        timezone: InfoContext.timezone,
+      })
+      setDate(new Date(info.dt*1000 + (info.timezone*1000)))
+  },1000)
+    
+  },[info.cityName, info.temp,info.description, info.windSpeed, info.dt, info.timezone])
 
-  componentDidMount(){
-    this.timerID = setInterval(
-      () => this.tick(),
-      1000
-    );
-  }
-
-
-  componentWillUnmount(){
-    clearInterval(this.timerID);
-  }
-
-  tick(){
-    InfoContext.dt++;
-    this.setState({
-      date: new Date(InfoContext.dt*1000 + (InfoContext.timezone*1000))
-    });
-
-  }
-
-  render(){
-    return(
-      <div className="Clock">
-        <h1> Hello, World! </h1>
-        <h2> It is {this.state.date.toUTCString() + " in " + InfoContext.cityName}.</h2>
-      </div>
-    )
-  }
+  
+  return(
+    <div className="Clock">
+      <h1> Hello, World! </h1>
+      <h2> It is {date.toUTCString() + " in " + info.cityName}.</h2>
+    </div>
+  )
 }
 
 
-
-
-
-
-export default Clock;

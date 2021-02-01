@@ -24,7 +24,6 @@ export var InfoContext:InfoContextType = {
 }
 
 function App() {
-  var clockComponent = <Clock />;
   var cityInput = "";
   const [info, setInfo] = useState(InfoContext);
   const [input, setInput] = useState("Piracicaba");
@@ -52,7 +51,7 @@ function App() {
 
   return (
     <div className="App">
-      {clockComponent}
+      <Clock />
       <form onSubmit={(e) => {
         e.preventDefault(); 
         InfoContext = info;

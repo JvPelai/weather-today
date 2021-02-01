@@ -16,7 +16,7 @@ window.env = {
   "npm_package_browserslist_production_0": ">0.2%",
   "TERM_PROGRAM_VERSION": "1.52.1",
   "NVM_BIN": "/home/jvpelai/.nvm/versions/node/v15.2.1/bin",
-  "VSCODE_IPC_HOOK_CLI": "/tmp/vscode-ipc-4df21445-2d20-40f0-8c99-b9e8562e4788.sock",
+  "VSCODE_IPC_HOOK_CLI": "/tmp/vscode-ipc-d0ec8342-4151-461b-8aef-1f06722c69e4.sock",
   "npm_package_browserslist_production_1": "not dead",
   "NVM_INC": "/home/jvpelai/.nvm/versions/node/v15.2.1/include/node",
   "npm_package_browserslist_production_2": "not op_mini all",
@@ -38,7 +38,7 @@ window.env = {
   "npm_package_dependencies__testing_library_react": "^11.1.0",
   "LOGNAME": "jvpelai",
   "NAME": "Code",
-  "WSL_INTEROP": "/run/WSL/8_interop",
+  "WSL_INTEROP": "/run/WSL/9_interop",
   "_": "/home/jvpelai/.nvm/versions/node/v15.2.1/bin/yarn",
   "npm_package_private": "true",
   "npm_config_registry": "https://registry.yarnpkg.com",
@@ -46,11 +46,11 @@ window.env = {
   "npm_package_scripts_start": "react-dotenv && react-scripts start",
   "npm_config_ignore_scripts": "",
   "npm_package_browserslist_development_0": "last 1 chrome version",
-  "PATH": "/tmp/yarn--1612111619399-0.5956775968041608:/home/jvpelai/Dev/react/weather_today/node_modules/.bin:/home/jvpelai/.config/yarn/link/node_modules/.bin:/home/jvpelai/.yarn/bin:/home/jvpelai/.nvm/versions/node/v15.2.1/libexec/lib/node_modules/npm/bin/node-gyp-bin:/home/jvpelai/.nvm/versions/node/v15.2.1/lib/node_modules/npm/bin/node-gyp-bin:/home/jvpelai/.nvm/versions/node/v15.2.1/bin/node_modules/npm/bin/node-gyp-bin:/home/jvpelai/.vscode-server/bin/ea3859d4ba2f3e577a159bc91e3074c5d85c0523/bin:/home/jvpelai/.nvm/versions/node/v15.2.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files/Microsoft MPI/Bin/:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/ProgramData/nvm:/mnt/c/Program Files/nodejs:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn/:/mnt/d/Users/PECEGE/AppData/Local/Microsoft/WindowsApps:/mnt/d/Users/PECEGE/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/d/Users/PECEGE/AppData/Local/GitHubDesktop/bin:/mnt/d/Users/PECEGE/.dotnet/tools:/mnt/d/Users/PECEGE/AppData/Local/hyper/app-3.0.2/resources/bin:/snap/bin",
+  "PATH": "/tmp/yarn--1612214880502-0.47176773769356517:/home/jvpelai/Dev/react/weather_today/node_modules/.bin:/home/jvpelai/.config/yarn/link/node_modules/.bin:/home/jvpelai/.yarn/bin:/home/jvpelai/.nvm/versions/node/v15.2.1/libexec/lib/node_modules/npm/bin/node-gyp-bin:/home/jvpelai/.nvm/versions/node/v15.2.1/lib/node_modules/npm/bin/node-gyp-bin:/home/jvpelai/.nvm/versions/node/v15.2.1/bin/node_modules/npm/bin/node-gyp-bin:/home/jvpelai/.vscode-server/bin/ea3859d4ba2f3e577a159bc91e3074c5d85c0523/bin:/home/jvpelai/.nvm/versions/node/v15.2.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files/Microsoft MPI/Bin/:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/ProgramData/nvm:/mnt/c/Program Files/nodejs:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn/:/mnt/d/Users/PECEGE/AppData/Local/Microsoft/WindowsApps:/mnt/d/Users/PECEGE/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/d/Users/PECEGE/AppData/Local/GitHubDesktop/bin:/mnt/d/Users/PECEGE/.dotnet/tools:/mnt/d/Users/PECEGE/AppData/Local/hyper/app-3.0.2/resources/bin:/mnt/d/Users/PECEGE/AppData/Local/Google/Cloud SDK/google-cloud-sdk/bin:/snap/bin",
   "NODE": "/home/jvpelai/.nvm/versions/node/v15.2.1/bin/node",
   "npm_package_browserslist_development_1": "last 1 firefox version",
   "npm_package_name": "weather_today",
-  "WT_SESSION": "a1b5e0b2-8720-4c66-a721-1f2780b597ad",
+  "WT_SESSION": "1e5f8234-d6ba-4974-9337-dfbdc9dc5941",
   "npm_package_browserslist_development_2": "last 1 safari version",
   "npm_package_scripts_eject": "react-scripts eject",
   "LANG": "C.UTF-8",
@@ -91,5 +91,5 @@ window.env = {
   "WSLENV": "ELECTRON_RUN_AS_NODE/w:WT_SESSION:BASH_ENV/u:WT_PROFILE_ID",
   "npm_package_dependencies_react": "^17.0.1",
   "npm_package_dependencies__types_react_dom": "^16.9.8",
-  "API_KEY": "ebe44c3dc4fb91f6b0c80c857f05ab66"
+  "API_KEY": "ff7b5842a996083b927245db38b4bf31"
 };
