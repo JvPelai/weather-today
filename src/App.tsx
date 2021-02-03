@@ -42,16 +42,14 @@ function App() {
         });
         
       }
-      Weather(input)
+      Weather(input);
     
     
   },[input])
   
- 
-
   return (
     <div className="App">
-      <Clock />
+      <Clock state={info} />
       <form onSubmit={(e) => {
         e.preventDefault(); 
         InfoContext = info;
