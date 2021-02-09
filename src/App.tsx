@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
+//import { getWeather } from "./api/getWeather";
+import { InfoContext } from "./index";
 import './App.css';
-import env from "react-dotenv";
-import Clock from './components/Clock'
 
-const apiKey = env.API_KEY;
+//import Clock from './components/Clock'
 
-export type InfoContextType ={
+
+
+export interface InfoProps {
   cityName: string;
   temp: string;
   description: string;
@@ -14,57 +16,35 @@ export type InfoContextType ={
   timezone: number
 }
 
-export var InfoContext:InfoContextType = {
-  cityName: "Piracicaba",
-  temp: "0",
-  description: "",
-  windSpeed: 0,
-  dt: 1612117229, 
-  timezone: -10800
-}
 
-function App() {
+export const WeatherDisplay = () => {
   var cityInput = "";
-  const [info, setInfo] = useState(InfoContext);
-  const [input, setInput] = useState("Piracicaba");
-  useEffect(() => {
-    async function Weather(city:string){
-      let weatherData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
-      let info = await weatherData.json();
-      console.log(info);
-      setInfo({
-          cityName: info.name,
-          temp: (info.main.temp - 273.15).toFixed(2) + "°C",
-          description: info.weather[0].description,
-          windSpeed: info.wind.speed,
-          dt: info.dt,
-          timezone: info.timezone
-        });
-        
-      }
-      Weather(input);
-    
-    
-  },[input])
-  
+  const status:any = useContext(InfoContext);
+  console.log(status)
   return (
-    <div className="App">
-      <Clock state={info} />
-      <form onSubmit={(e) => {
+    <div>
+      <form onSubmit={async (e) => {
         e.preventDefault(); 
-        InfoContext = info;
-        setInput(cityInput);
         }}>
         <input onChange={(e) => {cityInput = e.target.value} } type="text" id="city"></input>
         <button type="submit">search</button>
       </form>
-     <p>{info.cityName}</p>
-     <p>{info.temp}</p>
-     <p>{info.description}</p>
-     <p>Wind: {info.windSpeed}</p>
-     
-    </div>
+     <p>{status.cityName}</p>
+     <p>{status.temp}</p>
+     <p>{status.description}</p>
+     <p>Wind: {status.windSpeed}</p>
+     </div>
   );
 }
 
-export default App;
+export const App = () => {
+  const info:any = useContext(InfoContext);
+  console.log(info)
+  return (
+    <InfoContext.Provider value={info}>
+      <WeatherDisplay />
+    </InfoContext.Provider>
+  )
+}
+
+

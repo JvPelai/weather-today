@@ -1,12 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import  { App } from './App';
 import reportWebVitals from './reportWebVitals';
+import { getWeather } from "./api/getWeather";
+
+var weatherInfo;
+
+getWeather("Piracicaba")
+  .then(info => {
+    weatherInfo = info
+  })
+
+export const InfoContext:any = React.createContext(weatherInfo);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

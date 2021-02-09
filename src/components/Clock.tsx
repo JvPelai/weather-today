@@ -1,29 +1,19 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { Component, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import {InfoContext} from "../index"
 import "./style.css";
 
 
-export default function Clock(props:any){
-  const [info,setInfo] = useState(props.state);
+export default function Clock(){
+  const { info, changeCity } = useContext(InfoContext);
   const [date,setDate] = useState(new Date(info.dt*1000 + (info.timezone*1000)).toUTCString());
   useEffect(() => {
-    async function UpdateTime() {
-        setInfo({
-          cityName: props.state.cityName,
-          temp: props.state.temp,
-          description: props.state,
-          windSpeed: props.state.windSpeed,
-          dt: props.state.dt,
-          timezone: props.state.timezone
-        })
-    }
     setTimeout(() => {
-      UpdateTime()
       setDate(new Date((info.dt)*1000 + (info.timezone*1000)).toUTCString())
-      props.state.dt+=1
+      info.dt+=1
     },2000)
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[info])
+  },[date])
  
   return(
     <div className="Clock">
